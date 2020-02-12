@@ -9,6 +9,7 @@ out = np.zeros((1000, 100, 3), dtype=np.uint8)
 
 timeprev = 0
 time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+output_name = "output-{0}.png".format(datetime.datetime.now().strftime('%Y%m%d-%H%M%S'))
 print "start time: ", time
 time = ''.join(e for e in time if e.isalnum())
 time = int(time)
@@ -21,9 +22,6 @@ for i in range(0, 1000):
 		time = ''.join(e for e in time if e.isalnum())
 		time = int(time)
 	#color the row
-	print "getting row ", i
-	print "currtime: ", time
-	print "prevtime: ", timeprev
 	for j in range(0, 100):
 		out[i][j] = (time & 255, (time >> 8) & 255, (time >> 16) & 255)
 	#make sure you don't keep getting the same color
@@ -40,5 +38,5 @@ if(runtime > 60):
 else:
 	print "runtime:", endtime - starttime, " seconds"
 
-misc.imsave('output.png', out)
+misc.imsave(output_name, out)
 

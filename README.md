@@ -7,3 +7,8 @@
 ```
 
 This script will convert the current datetime to a colored row for 1000 rows.
+
+## todo
+
+* add unit tests
+* convert to python 3
